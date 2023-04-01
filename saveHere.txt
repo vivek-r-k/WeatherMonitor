@@ -1,0 +1,39 @@
+// Data from thingspeak
+import React, { useState, useEffect } from 'react';
+import { View, Text, FlatList } from 'react-native';
+
+export default function App() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch('https://api.thingspeak.com/channels/1943536/feeds.json?api_key=SDEOCP0I42CYUVTN&results=1')
+      .then(response => response.json())
+      .then(json => setData(json.feeds))
+      .catch(error => console.error(error))
+  }, []);
+
+  const renderData = ({ item }) => {
+    const date = new Date(item.created_at).toLocaleDateString();
+    const time = new Date(item.created_at).toLocaleTimeString();
+    return (
+      <View style={{ margin: 10 }}>
+        <Text>Date: {date}</Text>
+        <Text>Time: {time}</Text>
+        <Text>Temperature: {item.field1}°C</Text>
+        <Text>Humidity: {item.field2}%</Text>
+      </View>
+    );
+  }
+
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <FlatList
+        data={data}
+        renderItem={renderData}
+        keyExtractor={(item, index) => index.toString()}
+      />
+    </View>
+  );
+}
+
+// end - data from thingspeak
