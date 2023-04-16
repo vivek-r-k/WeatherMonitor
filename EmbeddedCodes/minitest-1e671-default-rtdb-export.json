@@ -1,0 +1,34 @@
+{
+  "LHC": {
+    "Temperature": {
+      "Timestamp": 1681478497,
+      "Value": 55
+    },
+    "Pressure": {
+      "Timestamp": 1681478497,
+      "Value": 35
+    },
+    "Altitude": {
+      "Timestamp": 1681478497,
+      "Value": 35
+    },
+    "Humidity": {
+      "Timestamp": 1681478497,
+      "Value": 35
+    },
+    "Gas": {
+      "Timestamp": 1681478497,
+      "Value": 35
+    }
+  },
+  "MainBuilding": {
+    "Humidity": {
+      "Timestamp": 1681478497,
+      "Value": 50
+    },
+    "Temperature": {
+      "Timestamp": 1681478497,
+      "Value": 35
+    }
+  }
+}
