@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1001243583144",
+    "firebase_url": "https://minitest-1e671-default-rtdb.firebaseio.com",
+    "project_id": "minitest-1e671",
+    "storage_bucket": "minitest-1e671.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1001243583144:android:37e958e5ebc160cf5c189d",
+        "android_client_info": {
+          "package_name": "com.weatherstation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1001243583144-ggbces3n5igg19626g358ng9ktec00b4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIXroPUOFonqFSpjjoNHwt2ivsla5cPl8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1001243583144-ggbces3n5igg19626g358ng9ktec00b4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

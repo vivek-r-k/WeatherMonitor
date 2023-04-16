@@ -1,12 +1,15 @@
-import React from 'react';
-import {View, TouchableOpacity, Text} from 'react-native';
+import React,{useState, useEffect} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Entypo';
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import All from '../Screens/All';
 import Home from '../Screens/Home';
-import IndLocations from '../Screens/IndLocations';
+import SoECE from '../Screens/SoECE';
+import MainBuilding from '../Screens/MainBuilding';
+import LHC from '../Screens/LHC';
+import OnboardingScreen from '../Screens/Onboarding';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -14,13 +17,43 @@ const Tab = createBottomTabNavigator();
 const HomeTab = ({navigation}) => (
     <Stack.Navigator>
         <Stack.Screen
-        name="Home"
+        name="Onboarding"
+        component={OnboardingScreen}
+        // TODO:
+        options={({route}) => ({
+            headerBackTitleVisible: false,
+            headerShown: false
+        })}
+        />
+        <Stack.Screen
+        name="HomeMap"
         component={Home}
         // TODO:
         options={({route}) => ({
-            // title: route.params.userName, //refer chatscreen.js
             headerBackTitleVisible: false,
+            headerShown: false
         })}
+        />
+        <Stack.Screen
+        name="SoECE"
+        component={SoECE}
+        options={{
+          headerShown: false,
+        }}
+        />
+        <Stack.Screen
+        name="MainBuilding"
+        component={MainBuilding}
+        options={{
+          headerShown: false,
+        }}
+        />
+        <Stack.Screen
+        name="LHC"
+        component={LHC}
+        options={{
+          headerShown: false,
+        }}
         />
   </Stack.Navigator>
 );
@@ -28,62 +61,73 @@ const HomeTab = ({navigation}) => (
 const AllLoc = ({navigation}) => (
   <Stack.Navigator>
     <Stack.Screen
-      name="AllLocation"
+      name="AllLocations"
       component={All}
     //   TODO:
       options={({route}) => ({
-        // title: route.params.userName, //refer chatscreen.js
+        headerShown: false,
         headerBackTitleVisible: false,
       })}
     />
-  </Stack.Navigator>
-);
-
-const IndLoc = ({navigation}) => (
-  <Stack.Navigator>
     <Stack.Screen
-      name="Hour"
-      component={IndLocations}
-      options={{
-        headerShown: false,
-      }}
-    />
-    {/* <Stack.Screen
-      name="Week"
-    //   TODO:
-      component={ProfileScreen}
+      name="SoECE"
+      component={SoECE}
       options={{
         headerShown: false,
       }}
     />
     <Stack.Screen
-      name="Week"
-    //   TODO:
-      component={ProfileScreen}
+      name="MainBuilding"
+      component={MainBuilding}
       options={{
         headerShown: false,
       }}
-    /> */}
+    />
+    <Stack.Screen
+      name="LHC"
+      component={LHC}
+      options={{
+        headerShown: false,
+      }}
+    />
+    
   </Stack.Navigator>
 );
 
 const AppStack = () => {
+  const [isFirstLaunch, setIsFirstLaunch] = useState(null);
+  let routeName;
+
+  useEffect(() => {
+    AsyncStorage.getItem('alreadyLaunched').then((value) => {
+      if (value == null) {
+        AsyncStorage.setItem('alreadyLaunched', 'true'); 
+        setIsFirstLaunch(true);
+      } else {
+        setIsFirstLaunch(false);
+      }
+    });
+  }, []);
+
+  if (isFirstLaunch === null) {
+    return null; 
+  } else if (isFirstLaunch == true) {
+    routeName = 'Onboarding';
+  } else {
+    routeName = 'Home';
+  }
     return (
       <Tab.Navigator
-        initialRouteName='Home'
+        initialRouteName={routeName}
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
   
             if (route.name === 'Home') {
-              iconName = focused ? 'ios-home' : 'ios-home-outline';
+              iconName = 'home';
             } else if (route.name === 'AllLocation') {
-              iconName = focused ? 'md-people' : 'md-people-outline';
-            } else if (route.name === 'IndividualLocation') {
-              iconName = focused ? 'md-person' : 'md-person-outline';
-            }
-  
-            // You can return any component that you like here!
+              iconName = 'location';
+            } 
             return <Ionicons name={iconName} size={size} color={color} />;
           },
           tabBarActiveTintColor: '#171F1D',
@@ -94,7 +138,6 @@ const AppStack = () => {
       >
         <Tab.Screen name="Home" component={HomeTab} />
         <Tab.Screen name="AllLocation" component={AllLoc} />
-        <Tab.Screen name="IndividualLocation" component={IndLoc} />
       </Tab.Navigator>
     );
   };
