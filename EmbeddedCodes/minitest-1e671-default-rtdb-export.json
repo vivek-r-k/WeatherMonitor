@@ -1,34 +1,116 @@
 {
-  "LHC": {
-    "Temperature": {
-      "Timestamp": 1681478497,
-      "Value": 55
+  "LHCBuilding": {
+    "1650255800000": {
+      "Gas": 700,
+      "Humidity": 50,
+      "Pressure": 400,
+      "Temperature": 35
     },
-    "Pressure": {
-      "Timestamp": 1681478497,
-      "Value": 35
+    "1650255900000": {
+      "Gas": 760,
+      "Humidity": 55,
+      "Pressure": 450,
+      "Temperature": 32
     },
-    "Altitude": {
-      "Timestamp": 1681478497,
-      "Value": 35
+    "1650256000000": {
+      "Gas": 700,
+      "Humidity": 50,
+      "Pressure": 400,
+      "Temperature": 35
     },
-    "Humidity": {
-      "Timestamp": 1681478497,
-      "Value": 35
+    "1650256100000": {
+      "Gas": 760,
+      "Humidity": 55,
+      "Pressure": 450,
+      "Temperature": 32
     },
-    "Gas": {
-      "Timestamp": 1681478497,
-      "Value": 35
+    "1650256200000": {
+      "Gas": 700,
+      "Humidity": 50,
+      "Pressure": 400,
+      "Temperature": 35
+    },
+    "1650256300000": {
+      "Gas": 760,
+      "Humidity": 55,
+      "Pressure": 450,
+      "Temperature": 32
     }
   },
   "MainBuilding": {
-    "Humidity": {
-      "Timestamp": 1681478497,
-      "Value": 50
+    "1650255800000": {
+      "Gas": 700,
+      "Humidity": 50,
+      "Pressure": 400,
+      "Temperature": 35
     },
-    "Temperature": {
-      "Timestamp": 1681478497,
-      "Value": 35
+    "1650255900000": {
+      "Gas": 760,
+      "Humidity": 55,
+      "Pressure": 450,
+      "Temperature": 32
+    },
+    "1650256000000": {
+      "Gas": 700,
+      "Humidity": 50,
+      "Pressure": 400,
+      "Temperature": 35
+    },
+    "1650256100000": {
+      "Gas": 760,
+      "Humidity": 55,
+      "Pressure": 450,
+      "Temperature": 32
+    },
+    "1650256200000": {
+      "Gas": 700,
+      "Humidity": 50,
+      "Pressure": 400,
+      "Temperature": 35
+    },
+    "1650256300000": {
+      "Gas": 760,
+      "Humidity": 55,
+      "Pressure": 450,
+      "Temperature": 32
+    }
+  },
+  "SoECE": {
+    "1650255800000": {
+      "Gas": 700,
+      "Humidity": 50,
+      "Pressure": 400,
+      "Temperature": 35
+    },
+    "1650255900000": {
+      "Gas": 760,
+      "Humidity": 55,
+      "Pressure": 450,
+      "Temperature": 32
+    },
+    "1650256000000": {
+      "Gas": 700,
+      "Humidity": 50,
+      "Pressure": 400,
+      "Temperature": 35
+    },
+    "1650256100000": {
+      "Gas": 760,
+      "Humidity": 55,
+      "Pressure": 450,
+      "Temperature": 32
+    },
+    "1650256200000": {
+      "Gas": 700,
+      "Humidity": 50,
+      "Pressure": 400,
+      "Temperature": 35
+    },
+    "1650256300000": {
+      "Gas": 760,
+      "Humidity": 55,
+      "Pressure": 450,
+      "Temperature": 32
     }
   }
 }
