@@ -2,6 +2,7 @@ import React,{useState, useEffect} from "react";
 import { Text,View, SafeAreaView, StyleSheet, ImageBackground, ScrollView, TouchableOpacity } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { Card } from 'react-native-paper';
+// import database from '@react-native-firebase/database';
 
 const All = () => {
     const navigation = useNavigation();
@@ -25,9 +26,19 @@ const All = () => {
                                 <Text style={{ fontSize: 18 }}>17°C</Text>
                                 </View>
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '80%', marginTop: '5%' }}>
-                                <Text style={{ fontSize: 18 }}>Humidity</Text>
+                                <Text style={{ fontSize: 18 }}>Humidity       </Text>
                                 <Text>|</Text>
                                 <Text style={{ fontSize: 18 }}>45%</Text>
+                                </View>
+                                <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '80%', marginTop: '5%' }}>
+                                <Text style={{ fontSize: 18 }}>Air Pressure      </Text>
+                                <Text>|</Text>
+                                <Text style={{ fontSize: 18 }}>   900 hpa</Text>
+                                </View>
+                                <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '80%', marginTop: '5%' }}>
+                                <Text style={{ fontSize: 18 }}>CO2                   </Text>
+                                <Text>|</Text>
+                                <Text style={{ fontSize: 18 }}>   900 ppm</Text>
                                 </View>
                             </View>
                             </Card>
@@ -50,9 +61,19 @@ const All = () => {
                                 <Text style={{ fontSize: 18 }}>17°C</Text>
                                 </View>
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '80%', marginTop: '5%' }}>
-                                <Text style={{ fontSize: 18 }}>Humidity</Text>
+                                <Text style={{ fontSize: 18 }}>Humidity       </Text>
                                 <Text>|</Text>
                                 <Text style={{ fontSize: 18 }}>45%</Text>
+                                </View>
+                                <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '80%', marginTop: '5%' }}>
+                                <Text style={{ fontSize: 18 }}>Air Pressure      </Text>
+                                <Text>|</Text>
+                                <Text style={{ fontSize: 18 }}>   900 hpa</Text>
+                                </View>
+                                <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '80%', marginTop: '5%' }}>
+                                <Text style={{ fontSize: 18 }}>CO2                   </Text>
+                                <Text>|</Text>
+                                <Text style={{ fontSize: 18 }}>   900 ppm</Text>
                                 </View>
                             </View>
                             </Card>
@@ -75,9 +96,19 @@ const All = () => {
                                 <Text style={{ fontSize: 18 }}>17°C</Text>
                                 </View>
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '80%', marginTop: '5%' }}>
-                                <Text style={{ fontSize: 18 }}>Humidity</Text>
+                                <Text style={{ fontSize: 18 }}>Humidity       </Text>
                                 <Text>|</Text>
                                 <Text style={{ fontSize: 18 }}>45%</Text>
+                                </View>
+                                <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '80%', marginTop: '5%' }}>
+                                <Text style={{ fontSize: 18 }}>Air Pressure      </Text>
+                                <Text>|</Text>
+                                <Text style={{ fontSize: 18 }}>   900 hpa</Text>
+                                </View>
+                                <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '80%', marginTop: '5%' }}>
+                                <Text style={{ fontSize: 18 }}>CO2                   </Text>
+                                <Text>|</Text>
+                                <Text style={{ fontSize: 18 }}>   900 ppm</Text>
                                 </View>
                             </View>
                             </Card>

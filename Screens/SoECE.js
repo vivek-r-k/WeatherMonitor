@@ -1,279 +1,247 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, Text, Dimensions, ImageBackground, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
 import { Card } from 'react-native-paper';
-import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
-import { Table, Row, Rows } from 'react-native-table-component';
-import TempIcon from 'react-native-vector-icons/FontAwesome5'
-import HumidIcon from 'react-native-vector-icons/SimpleLineIcons'
-import database from '@react-native-firebase/database';
+import { TabView, SceneMap } from 'react-native-tab-view';
+
+import RenderHourData from '../RenderData/RenderHourData';
+import Render10Data from '../RenderData/Render10Data';
+import RenderWeekData from '../RenderData/RenderWeekData';
 
 const HourlyTab = () => {
     return (
         <View>
             <ScrollView horizontal contentContainerStyle={{ paddingRight: 16 }}>
-                        <View style={{ flexDirection: 'column', marginTop: 16, marginRight: 16 }}>
-                            <Text style={{ fontSize: 18 }}>30%</Text>
-                            <HumidIcon name="drop" size={30}/>
-                            <Text style={{ fontSize: 18, marginTop:10 }}>15°C</Text>
-                            <TempIcon name="cloud-sun-rain" size={30} />
-                            <Text style={{ fontSize: 18 }}>8 am</Text>
-                        </View>
-                        
-                        <View style={{ flexDirection: 'column', marginTop: 16, marginRight: 16 }}>
-                            <Text style={{ fontSize: 18 }}>30%</Text>
-                            <HumidIcon name="drop" size={30}/>
-                            <Text style={{ fontSize: 18, marginTop:10 }}>15°C</Text>
-                            <TempIcon name="cloud-sun-rain" size={30} />
-                            <Text style={{ fontSize: 18 }}>9 am</Text>
-                        </View>
-                        
-                        <View style={{ flexDirection: 'column', marginTop: 16, marginRight: 16 }}>
-                            <Text style={{ fontSize: 18 }}>30%</Text>
-                            <HumidIcon name="drop" size={30}/>
-                            <Text style={{ fontSize: 18, marginTop:10 }}>15°C</Text>
-                            <TempIcon name="cloud-sun-rain" size={30} />
-                            <Text style={{ fontSize: 18 }}>10 am</Text>
-                        </View>
-                        
-                        <View style={{ flexDirection: 'column', marginTop: 16, marginRight: 16 }}>
-                            <Text style={{ fontSize: 18 }}>30%</Text>
-                            <HumidIcon name="drop" size={30}/>
-                            <Text style={{ fontSize: 18, marginTop:10 }}>15°C</Text>
-                            <TempIcon name="cloud-sun-rain" size={30} />
-                            <Text style={{ fontSize: 18 }}>11 am</Text>
-                        </View>
-                        
-                        <View style={{ flexDirection: 'column', marginTop: 16, marginRight: 16 }}>
-                            <Text style={{ fontSize: 18 }}>30%</Text>
-                            <HumidIcon name="drop" size={30}/>
-                            <Text style={{ fontSize: 18, marginTop:10 }}>15°C</Text>
-                            <TempIcon name="cloud-sun-rain" size={30} />
-                            <Text style={{ fontSize: 18 }}>12 pm</Text>
-                        </View>
-                        
-                        <View style={{ flexDirection: 'column', marginTop: 16, marginRight: 16 }}>
-                            <Text style={{ fontSize: 18 }}>30%</Text>
-                            <HumidIcon name="drop" size={30}/>
-                            <Text style={{ fontSize: 18, marginTop:10 }}>15°C</Text>
-                            <TempIcon name="cloud-sun-rain" size={30} />
-                            <Text style={{ fontSize: 18 }}>01 pm</Text>
-                        </View>
-                        
-                        <View style={{ flexDirection: 'column', marginTop: 16, marginRight: 16 }}>
-                            <Text style={{ fontSize: 18 }}>30%</Text>
-                            <HumidIcon name="drop" size={30}/>
-                            <Text style={{ fontSize: 18, marginTop:10 }}>15°C</Text>
-                            <TempIcon name="cloud-sun-rain" size={30} />
-                            <Text style={{ fontSize: 18 }}>02 pm</Text>
-                        </View>
-                        
-                        <View style={{ flexDirection: 'column', marginTop: 16, marginRight: 16 }}>
-                            <Text style={{ fontSize: 18 }}>30%</Text>
-                            <HumidIcon name="drop" size={30}/>
-                            <Text style={{ fontSize: 18, marginTop:10 }}>15°C</Text>
-                            <TempIcon name="cloud-sun-rain" size={30} />
-                            <Text style={{ fontSize: 18 }}>03 pm</Text>
-                        </View>
-                        
-                        <View style={{ flexDirection: 'column', marginTop: 16, marginRight: 16 }}>
-                            <Text style={{ fontSize: 18 }}>30%</Text>
-                            <HumidIcon name="drop" size={30}/>
-                            <Text style={{ fontSize: 18, marginTop:10 }}>15°C</Text>
-                            <TempIcon name="cloud-sun-rain" size={30} />
-                            <Text style={{ fontSize: 18 }}>04 pm</Text>
-                        </View>
-                        
-                        <View style={{ flexDirection: 'column', marginTop: 16, marginRight: 16 }}>
-                            <Text style={{ fontSize: 18 }}>30%</Text>
-                            <HumidIcon name="drop" size={30}/>
-                            <Text style={{ fontSize: 18, marginTop:10 }}>15°C</Text>
-                            <TempIcon name="cloud-sun-rain" size={30} />
-                            <Text style={{ fontSize: 18 }}>05 pm</Text>
-                        </View>
-                        
-                        <View style={{ flexDirection: 'column', marginTop: 16, marginRight: 16 }}>
-                            <Text style={{ fontSize: 18 }}>30%</Text>
-                            <HumidIcon name="drop" size={30}/>
-                            <Text style={{ fontSize: 18, marginTop:10 }}>15°C</Text>
-                            <TempIcon name="cloud-sun-rain" size={30} />
-                            <Text style={{ fontSize: 18 }}>06 pm</Text>
-                        </View>
-                        
-                        <View style={{ flexDirection: 'column', marginTop: 16, marginRight: 16 }}>
-                            <Text style={{ fontSize: 18 }}>30%</Text>
-                            <HumidIcon name="drop" size={30}/>
-                            <Text style={{ fontSize: 18, marginTop:10 }}>15°C</Text>
-                            <TempIcon name="cloud-sun-rain" size={30} />
-                            <Text style={{ fontSize: 18 }}>07 pm</Text>
-                        </View>
-                        
-                        <View style={{ flexDirection: 'column', marginTop: 16, marginRight: 16 }}>
-                            <Text style={{ fontSize: 18 }}>30%</Text>
-                            <HumidIcon name="drop" size={30}/>
-                            <Text style={{ fontSize: 18, marginTop:10 }}>15°C</Text>
-                            <TempIcon name="cloud-sun-rain" size={30} />
-                            <Text style={{ fontSize: 18 }}>08 pm</Text>
-                        </View>
-                        
-                        <View style={{ flexDirection: 'column', marginTop: 16, marginRight: 16 }}>
-                            <Text style={{ fontSize: 18 }}>30%</Text>
-                            <HumidIcon name="drop" size={30}/>
-                            <Text style={{ fontSize: 18, marginTop:10 }}>15°C</Text>
-                            <TempIcon name="cloud-sun-rain" size={30} />
-                            <Text style={{ fontSize: 18 }}>09 pm</Text>
-                        </View>
-                        
-                        <View style={{ flexDirection: 'column', marginTop: 16, marginRight: 16 }}>
-                            <Text style={{ fontSize: 18 }}>30%</Text>
-                            <HumidIcon name="drop" size={30}/>
-                            <Text style={{ fontSize: 18, marginTop:10 }}>15°C</Text>
-                            <TempIcon name="cloud-sun-rain" size={30} />
-                            <Text style={{ fontSize: 18 }}>10 pm</Text>
-                        </View>
-                        
-                        <View style={{ flexDirection: 'column', marginTop: 16, marginRight: 16 }}>
-                            <Text style={{ fontSize: 18 }}>30%</Text>
-                            <HumidIcon name="drop" size={30}/>
-                            <Text style={{ fontSize: 18, marginTop:10 }}>15°C</Text>
-                            <TempIcon name="cloud-sun-rain" size={30} />
-                            <Text style={{ fontSize: 18 }}>11 pm</Text>
-                        </View>
-                        
-                        <View style={{ flexDirection: 'column', marginTop: 16, marginRight: 16 }}>
-                            <Text style={{ fontSize: 18 }}>30%</Text>
-                            <HumidIcon name="drop" size={30}/>
-                            <Text style={{ fontSize: 18, marginTop:10 }}>15°C</Text>
-                            <TempIcon name="cloud-sun-rain" size={30} />
-                            <Text style={{ fontSize: 18 }}>12 am</Text>
-                        </View>
-                        
-                        <View style={{ flexDirection: 'column', marginTop: 16, marginRight: 16 }}>
-                            <Text style={{ fontSize: 18 }}>30%</Text>
-                            <HumidIcon name="drop" size={30}/>
-                            <Text style={{ fontSize: 18, marginTop:10 }}>15°C</Text>
-                            <TempIcon name="cloud-sun-rain" size={30} />
-                            <Text style={{ fontSize: 18 }}>01 am</Text>
-                        </View>
-                        
-                        <View style={{ flexDirection: 'column', marginTop: 16, marginRight: 16 }}>
-                            <Text style={{ fontSize: 18 }}>30%</Text>
-                            <HumidIcon name="drop" size={30}/>
-                            <Text style={{ fontSize: 18, marginTop:10 }}>15°C</Text>
-                            <TempIcon name="cloud-sun-rain" size={30} />
-                            <Text style={{ fontSize: 18 }}>02 am</Text>
-                        </View>
-                        
-                        <View style={{ flexDirection: 'column', marginTop: 16, marginRight: 16 }}>
-                            <Text style={{ fontSize: 18 }}>30%</Text>
-                            <HumidIcon name="drop" size={30}/>
-                            <Text style={{ fontSize: 18, marginTop:10 }}>15°C</Text>
-                            <TempIcon name="cloud-sun-rain" size={30} />
-                            <Text style={{ fontSize: 18 }}>03 am</Text>
-                        </View>
-                        
-                        <View style={{ flexDirection: 'column', marginTop: 16, marginRight: 16 }}>
-                            <Text style={{ fontSize: 18 }}>30%</Text>
-                            <HumidIcon name="drop" size={30}/>
-                            <Text style={{ fontSize: 18, marginTop:10 }}>15°C</Text>
-                            <TempIcon name="cloud-sun-rain" size={30} />
-                            <Text style={{ fontSize: 18 }}>04 am</Text>
-                        </View>
-                        
-                        <View style={{ flexDirection: 'column', marginTop: 16, marginRight: 16 }}>
-                            <Text style={{ fontSize: 18 }}>30%</Text>
-                            <HumidIcon name="drop" size={30}/>
-                            <Text style={{ fontSize: 18, marginTop:10 }}>15°C</Text>
-                            <TempIcon name="cloud-sun-rain" size={30} />
-                            <Text style={{ fontSize: 18 }}>05 am</Text>
-                        </View>
-                        
-                        <View style={{ flexDirection: 'column', marginTop: 16, marginRight: 16 }}>
-                            <Text style={{ fontSize: 18 }}>30%</Text>
-                            <HumidIcon name="drop" size={30}/>
-                            <Text style={{ fontSize: 18, marginTop:10 }}>15°C</Text>
-                            <TempIcon name="cloud-sun-rain" size={30} />
-                            <Text style={{ fontSize: 18 }}>06 am</Text>
-                        </View>
-                        
-                        <View style={{ flexDirection: 'column', marginTop: 16, marginRight: 16 }}>
-                            <Text style={{ fontSize: 18 }}>30%</Text>
-                            <HumidIcon name="drop" size={30}/>
-                            <Text style={{ fontSize: 18, marginTop:10 }}>15°C</Text>
-                            <TempIcon name="cloud-sun-rain" size={30} />
-                            <Text style={{ fontSize: 18 }}>07 am</Text>
-                        </View>
-                        
-                        
-                    </ScrollView>
+                <RenderHourData temp={25} humidity={60} air={30} co2={10}time={"8 am"}/>   
+                <RenderHourData temp={25} humidity={60} air={30} co2={10}time={"8 am"}/>   
+                <RenderHourData temp={25} humidity={60} air={30} co2={10}time={"8 am"}/>   
+                <RenderHourData temp={25} humidity={60} air={30} co2={10}time={"8 am"}/>   
+                <RenderHourData temp={25} humidity={60} air={30} co2={10}time={"8 am"}/>   
+                <RenderHourData temp={25} humidity={60} air={30} co2={10}time={"8 am"}/>   
+                <RenderHourData temp={25} humidity={60} air={30} co2={10}time={"8 am"}/>   
+                <RenderHourData temp={25} humidity={60} air={30} co2={10}time={"8 am"}/>   
+                <RenderHourData temp={25} humidity={60} air={30} co2={10}time={"8 am"}/>   
+                <RenderHourData temp={25} humidity={60} air={30} co2={10}time={"8 am"}/>   
+                <RenderHourData temp={25} humidity={60} air={30} co2={10}time={"8 am"}/>   
+                <RenderHourData temp={25} humidity={60} air={30} co2={10}time={"8 am"}/>   
+                <RenderHourData temp={25} humidity={60} air={30} co2={10}time={"8 am"}/>   
+                <RenderHourData temp={25} humidity={60} air={30} co2={10}time={"8 am"}/>   
+                <RenderHourData temp={25} humidity={60} air={30} co2={10}time={"8 am"}/>   
+                <RenderHourData temp={25} humidity={60} air={30} co2={10}time={"8 am"}/>   
+                <RenderHourData temp={25} humidity={60} air={30} co2={10}time={"8 am"}/>   
+                <RenderHourData temp={25} humidity={60} air={30} co2={10}time={"8 am"}/>   
+                <RenderHourData temp={25} humidity={60} air={30} co2={10}time={"8 am"}/>   
+                <RenderHourData temp={25} humidity={60} air={30} co2={10}time={"8 am"}/>   
+                <RenderHourData temp={25} humidity={60} air={30} co2={10}time={"8 am"}/>   
+                <RenderHourData temp={25} humidity={60} air={30} co2={10}time={"8 am"}/>   
+                <RenderHourData temp={25} humidity={60} air={30} co2={10}time={"8 am"}/>   
+                <RenderHourData temp={25} humidity={60} air={30} co2={10}time={"8 am"}/>   
+            </ScrollView>
         </View>
     );
     }
 
-    const WeeklyTab = () => {
-        const tableHead = ['Day', 'Temperature', 'Humidity'];
-        const tableData = [
-            ['Monday', '70°F', '60%'],
-            ['Tuesday', '72°F', '55%'],
-            ['Wednesday', '74°F', '50%'],
-            ['Thursday', '76°F', '45%'],
-            ['Friday', '78°F', '40%'],
-            ['Saturday', '80°F', '35%'],
-            ['Sunday', '82°F', '30%'],
-    ];
-
+const WeeklyTab = () => {
     return (
-        <ScrollView>
-            <View style={{flex:1, marginTop:5}}>
-            <Table borderStyle={{ borderWidth: 1 }}>
-                <Row
-                data={tableHead}
-                style={styles.head}
-                textStyle={styles.text}
-                />
-                <Rows data={tableData} 
-                textStyle={styles.text} 
-                />
-            </Table>
-            </View>
-        </ScrollView>
-    );
+        <View>
+            <ScrollView horizontal contentContainerStyle={{ paddingRight: 16 }}>
+                <RenderWeekData 
+                    mintemp={25} 
+                    minhumidity={60} 
+                    minair={30} 
+                    minco2={10}
+                    maxtemp={25} 
+                    maxhumidity={60} 
+                    maxair={30} 
+                    maxco2={10}
+                    time={"MON"}
+                    />
+                <RenderWeekData 
+                    mintemp={25} 
+                    minhumidity={60} 
+                    minair={30} 
+                    minco2={10}
+                    maxtemp={25} 
+                    maxhumidity={60} 
+                    maxair={30} 
+                    maxco2={10}
+                    time={"MON"}
+                    />
+                <RenderWeekData 
+                    mintemp={25} 
+                    minhumidity={60} 
+                    minair={30} 
+                    minco2={10}
+                    maxtemp={25} 
+                    maxhumidity={60} 
+                    maxair={30} 
+                    maxco2={10}
+                    time={"MON"}
+                    />
+                <RenderWeekData 
+                    mintemp={25} 
+                    minhumidity={60} 
+                    minair={30} 
+                    minco2={10}
+                    maxtemp={25} 
+                    maxhumidity={60} 
+                    maxair={30} 
+                    maxco2={10}
+                    time={"MON"}
+                    />
+                <RenderWeekData 
+                    mintemp={25} 
+                    minhumidity={60} 
+                    minair={30} 
+                    minco2={10}
+                    maxtemp={25} 
+                    maxhumidity={60} 
+                    maxair={30} 
+                    maxco2={10}
+                    time={"MON"}
+                    />
+                <RenderWeekData 
+                    mintemp={25} 
+                    minhumidity={60} 
+                    minair={30} 
+                    minco2={10}
+                    maxtemp={25} 
+                    maxhumidity={60} 
+                    maxair={30} 
+                    maxco2={10}
+                    time={"MON"}
+                    />
+                <RenderWeekData 
+                    mintemp={25} 
+                    minhumidity={60} 
+                    minair={30} 
+                    minco2={10}
+                    maxtemp={25} 
+                    maxhumidity={60} 
+                    maxair={30} 
+                    maxco2={10}
+                    time={"MON"}
+                    />
+            </ScrollView>
+        </View>
+    )
     }
 
-    const FifteenDaysTab = () => {
-        const tableHead = ['Date', 'Temperature', 'Humidity'];
-        const tableData = [
-            ['07-12-2022', '70°F', '60%'],
-            ['08-12-2022', '72°F', '55%'],
-            ['09-12-2022', '78°F', '40%'],
-            ['10-12-2022', '74°F', '50%'],
-            ['11-12-2022', '76°F', '45%'],
-            ['12-12-2022', '78°F', '40%'],
-            ['13-12-2022', '80°F', '35%'],
-            ['14-12-2022', '82°F', '30%'],
-            ['15-12-2022', '78°F', '40%'],
-            ['16-12-2022', '70°F', '60%'],
-            ['17-12-2022', '78°F', '40%'],
-            ['18-12-2022', '70°F', '60%'],
-            ['20-12-2022', '78°F', '40%'],
-            ['21-12-2022', '74°F', '50%'],
-            ['22-12-2022', '76°F', '45%'],
-    ];
-
+const FifteenDaysTab = () => {
     return (
-        <ScrollView>
-            <View style={{flex:1, marginTop:5}}>
-            <Table borderStyle={{ borderWidth: 1 }}>
-                <Row
-                data={tableHead}
-                style={styles.head}
-                textStyle={styles.text}
+        <View>
+            <ScrollView horizontal contentContainerStyle={{ paddingRight: 16 }}>
+                <Render10Data 
+                    mintemp={25} 
+                    minhumidity={60} 
+                    minair={30} 
+                    minco2={10}
+                    maxtemp={25} 
+                    maxhumidity={60} 
+                    maxair={30} 
+                    maxco2={10}
+                    time={"Dec 07"}
                 />
-                <Rows data={tableData} 
-                textStyle={styles.text} 
+                <Render10Data 
+                    mintemp={25} 
+                    minhumidity={60} 
+                    minair={30} 
+                    minco2={10}
+                    maxtemp={25} 
+                    maxhumidity={60} 
+                    maxair={30} 
+                    maxco2={10}
+                    time={"Dec 07"}
                 />
-            </Table>
-            </View>
-        </ScrollView>
+                <Render10Data 
+                    mintemp={25} 
+                    minhumidity={60} 
+                    minair={30} 
+                    minco2={10}
+                    maxtemp={25} 
+                    maxhumidity={60} 
+                    maxair={30} 
+                    maxco2={10}
+                    time={"Dec 07"}
+                />
+                <Render10Data 
+                    mintemp={25} 
+                    minhumidity={60} 
+                    minair={30} 
+                    minco2={10}
+                    maxtemp={25} 
+                    maxhumidity={60} 
+                    maxair={30} 
+                    maxco2={10}
+                    time={"Dec 07"}
+                />
+                <Render10Data 
+                    mintemp={25} 
+                    minhumidity={60} 
+                    minair={30} 
+                    minco2={10}
+                    maxtemp={25} 
+                    maxhumidity={60} 
+                    maxair={30} 
+                    maxco2={10}
+                    time={"Dec 07"}
+                />
+                <Render10Data 
+                    mintemp={25} 
+                    minhumidity={60} 
+                    minair={30} 
+                    minco2={10}
+                    maxtemp={25} 
+                    maxhumidity={60} 
+                    maxair={30} 
+                    maxco2={10}
+                    time={"Dec 07"}
+                />
+                <Render10Data 
+                    mintemp={25} 
+                    minhumidity={60} 
+                    minair={30} 
+                    minco2={10}
+                    maxtemp={25} 
+                    maxhumidity={60} 
+                    maxair={30} 
+                    maxco2={10}
+                    time={"Dec 07"}
+                />
+                <Render10Data 
+                    mintemp={25} 
+                    minhumidity={60} 
+                    minair={30} 
+                    minco2={10}
+                    maxtemp={25} 
+                    maxhumidity={60} 
+                    maxair={30} 
+                    maxco2={10}
+                    time={"Dec 07"}
+                />
+                <Render10Data 
+                    mintemp={25} 
+                    minhumidity={60} 
+                    minair={30} 
+                    minco2={10}
+                    maxtemp={25} 
+                    maxhumidity={60} 
+                    maxair={30} 
+                    maxco2={10}
+                    time={"Dec 07"}
+                />
+                <Render10Data 
+                    mintemp={25} 
+                    minhumidity={60} 
+                    minair={30} 
+                    minco2={10}
+                    maxtemp={25} 
+                    maxhumidity={60} 
+                    maxair={30} 
+                    maxco2={10}
+                    time={"Dec 07"}
+                />
+            </ScrollView>
+        </View>
     );
     }
 
@@ -281,8 +249,8 @@ export default function SoECE() {
   const [index, setIndex] = useState(0);
   const [routes] = useState([
         { key: 'hourly', title: 'Hourly' },
-        { key: 'weekly', title: 'Weekly' },
-        { key: 'fifteen_days', title: '15 days' },
+        { key: 'weekly', title: 'Week' },
+        { key: 'fifteen_days', title: '10 days' },
   ]);
 
   const renderScene = SceneMap({
@@ -290,6 +258,18 @@ export default function SoECE() {
     weekly: WeeklyTab,
     fifteen_days: FifteenDaysTab
   });
+
+  const [humidityValue, setHumidityValue] = useState(43);
+
+//   useEffect(() => {
+//     const LHC_Humidity_Ref = database().ref('/MainBuilding/Humidity');
+//     LHC_Humidity_Ref.on('value', snapshot => {
+//       const humidityValue = snapshot.val().Value;
+//       console.log('LHC Humidity: ', humidityValue);
+//       setHumidityValue(humidityValue);
+//     });
+//   }, []);
+
 
   return (
         <>
@@ -308,9 +288,19 @@ export default function SoECE() {
                     <Text style={{ fontSize: 18 }}>22°C</Text>
                     </View>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '80%', marginTop: '5%' }}>
-                    <Text style={{ fontSize: 18 }}>Humidity</Text>
+                    <Text style={{ fontSize: 18 }}>Humidity       </Text>
                     <Text>|</Text>
-                    <Text style={{ fontSize: 18 }}>45%</Text>
+                    {humidityValue && <Text style={{ fontSize: 18 }}>{humidityValue}%</Text>}
+                    </View>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '80%', marginTop: '5%' }}>
+                    <Text style={{ fontSize: 18 }}>Air Pressure      </Text>
+                    <Text>|</Text>
+                    <Text style={{ fontSize: 18 }}>   900 hpa</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '80%', marginTop: '5%' }}>
+                    <Text style={{ fontSize: 18 }}>CO2                   </Text>
+                    <Text>|</Text>
+                    <Text style={{ fontSize: 18 }}>   900 ppm</Text>
                     </View>
                 </View>
                 </Card>
@@ -319,7 +309,9 @@ export default function SoECE() {
         <View>
             <Card style={{ backgroundColor: 'rgba(231, 238, 208, 0.7)' }}>
             <Card.Content>
-                <View style={styles.tabView}>
+                {/* TODO:
+                <View style={{height: routes[0].key =='weekly' ? 400 : 300}}> */}
+                <View style={{height: 380}}>
                     <TabView
                     navigationState={{ index, routes }}
                     renderScene={renderScene}
@@ -366,7 +358,7 @@ const styles = StyleSheet.create({
     resizeMode: 'stretch', // or 'stretch',
   },
   tabView: {
-    height: 200,
+    height: 410,
   },
   tabContent: {
     flex: 1,
