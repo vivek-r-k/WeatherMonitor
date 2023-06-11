@@ -6,15 +6,23 @@ import AirIcon from 'react-native-vector-icons/Entypo'
 import CO2Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const RenderHourData = ({temp, humidity, air, co2, time }) => {
+    const [time1, time2] = time.split(' ')
+    // console.log(time,time1,time2);
+    numberr = parseInt(time1)
+    numberr++
+    back = numberr.toString()
+    backToBack = back + time2
+    console.log(backToBack);
+
     return(
         <View style={{ flexDirection: 'column', marginTop: 7, marginRight: 16 }}>
-            <Text style={{ fontSize: 18,textAlign:'center' }}>{temp}°C</Text>
+            <Text style={{ fontSize: 18,textAlign:'center' }}>{temp.toFixed(2)}°C</Text>
             <View style={{alignSelf:"center"}}><TempIcon name="cloud-sun-rain" size={25} /></View>
-            <Text style={{ fontSize: 18, marginTop:10,textAlign:'center' }}>{humidity}%</Text>
+            <Text style={{ fontSize: 18, marginTop:10,textAlign:'center' }}>{humidity.toFixed(2)}%</Text>
             <View style={{alignSelf:"center"}}><HumidIcon name="drop" size={25}/></View>
-            <Text style={{fontSize: 18, marginTop:10,textAlign:'center'}}>{air} hpa</Text>
+            <Text style={{fontSize: 18, marginTop:10,textAlign:'center'}}>{air.toFixed(2)} hPa</Text>
             <View style={{alignSelf:"center"}}><AirIcon name="air" size={25} /></View>
-            <Text style={{fontSize: 18, marginTop:10,textAlign:'center'}}>{co2} ppm</Text>
+            <Text style={{fontSize: 18, marginTop:10,textAlign:'center'}}>{co2.toFixed(2)} ppm</Text>
             <View style={{alignSelf:"center"}}><CO2Icon name="smoke" size={25} /></View>
             <Text style={{ fontSize: 18, marginTop: 10,textAlign:'center',fontWeight:'bold'}}>{time}</Text>
         </View>

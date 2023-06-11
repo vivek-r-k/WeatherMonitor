@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "1001243583144",
-    "firebase_url": "https://minitest-1e671-default-rtdb.firebaseio.com",
-    "project_id": "minitest-1e671",
-    "storage_bucket": "minitest-1e671.appspot.com"
+    "project_number": "11409016606",
+    "firebase_url": "https://kletech-weather-station-bb2e2-default-rtdb.firebaseio.com",
+    "project_id": "kletech-weather-station-bb2e2",
+    "storage_bucket": "kletech-weather-station-bb2e2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1001243583144:android:37e958e5ebc160cf5c189d",
+        "mobilesdk_app_id": "1:11409016606:android:8a3371e6b837354d21eb0f",
         "android_client_info": {
           "package_name": "com.weatherstation"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1001243583144-ggbces3n5igg19626g358ng9ktec00b4.apps.googleusercontent.com",
+          "client_id": "11409016606-4s2if0qigv0tn9dqfsf4364f9haovuv8.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBIXroPUOFonqFSpjjoNHwt2ivsla5cPl8"
+          "current_key": "AIzaSyB92jKF0Cu2ro550i4muCjqpW8IYK_8W7Q"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1001243583144-ggbces3n5igg19626g358ng9ktec00b4.apps.googleusercontent.com",
+              "client_id": "11409016606-4s2if0qigv0tn9dqfsf4364f9haovuv8.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

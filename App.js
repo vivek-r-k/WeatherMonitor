@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet,SafeAreaView,ImageBackground,StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import AppStack from './Navigation/Appstack';
+import Test from './Screens/Test';
 
 export default function App() {
 
@@ -12,6 +13,7 @@ export default function App() {
         <AppStack />
     </SafeAreaView>
     </NavigationContainer>
+    // <Test />
   );
 }
 
