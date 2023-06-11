@@ -19,8 +19,8 @@ const All = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-  const MainBuilding_Ref = database().ref('/SoECE/');
-  MainBuilding_Ref.on('value', snapshot => {
+  const ECE_REF = database().ref('/SoECE/');
+  ECE_REF.on('value', snapshot => {
       const data = snapshot.val();
       const timestamps = Object.keys(data);
       const lastTimestamp = timestamps[timestamps.length - 1];
@@ -60,8 +60,8 @@ const All = () => {
   const [isLoading1, setIsLoading1] = useState(true)
 
   useEffect(() => {
-  const MainBuilding_Ref = database().ref('/LHC/');
-  MainBuilding_Ref.on('value', snapshot => {
+  const LHC_REF = database().ref('/LHC/');
+  LHC_REF.on('value', snapshot => {
       const data = snapshot.val();
       const timestamps = Object.keys(data);
       const lastTimestamp = timestamps[timestamps.length - 1];
