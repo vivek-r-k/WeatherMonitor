@@ -6,13 +6,6 @@ import AirIcon from 'react-native-vector-icons/Entypo'
 import CO2Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const RenderHourData = ({temp, humidity, air, co2, time }) => {
-    const [time1, time2] = time.split(' ')
-    // console.log(time,time1,time2);
-    numberr = parseInt(time1)
-    numberr++
-    back = numberr.toString()
-    backToBack = back + time2
-    console.log(backToBack);
 
     return(
         <View style={{ flexDirection: 'column', marginTop: 7, marginRight: 16 }}>

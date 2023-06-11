@@ -19,7 +19,7 @@ const HourlyTab = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const MainBuilding_Ref = database().ref('/MainBuilding/');
+      const MainBuilding_Ref = database().ref('/LHC/');
       MainBuilding_Ref.on('value', snapshot => {
         const data = snapshot.val();
         const timestamps = Object.keys(data);
